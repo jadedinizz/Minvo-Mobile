@@ -9,7 +9,7 @@ export default function LoginScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Image source={require('./src/assets/LOGOMINVO.png')} style={styles.logo} />
+      <Image source={require('../assets/LOGOMINVO.png')} style={styles.logo} />
 
       <View style={styles.content}>
         <Text style={styles.title}>Faça login</Text>
