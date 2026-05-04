@@ -1,6 +1,8 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
 import Header from '../components/header';
+import Categories from '../components/categories';
+import BusinessList from '../components/business-list';
 
 export default function HomeScreen({ navigation, setIsLoggedIn }) {
     return (
@@ -10,16 +12,17 @@ export default function HomeScreen({ navigation, setIsLoggedIn }) {
                 onProfilePress={() => setIsLoggedIn(false)} // usa como logout
             />
 
-            <View style={styles.content}>
-                <Text style={styles.welcome}>Bem-vindo!</Text>
-
-                <TouchableOpacity
-                    style={styles.button}
-                    onPress={() => navigation.navigate('Detail')}
-                >
-                    <Text style={styles.buttonText}>Ir para Detalhes</Text>
-                </TouchableOpacity>
+            <View style={styles.bannerContainer}>
+                <Text style={styles.bannerText}>
+                    Agende serviços na sua região com praticidade! Encontre os melhores profissionais do mercado perto de você.
+                </Text>
             </View>
+
+            <Categories />
+
+            <BusinessList 
+                onCardPress={(service) => navigation.navigate('Detail', { service })}
+            />
         </SafeAreaView>
     );
 }
@@ -35,52 +38,17 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: colors.background,
     },
-    header: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
+    bannerContainer: {
         paddingHorizontal: 20,
-        paddingTop: 20,
-        paddingBottom: 15,
-        borderBottomWidth: 1,
-        borderBottomColor: '#e0e0e0',
-    },
-    title: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        color: colors.primary,
-    },
-    logoutButton: {
-        paddingHorizontal: 15,
-        paddingVertical: 8,
-        backgroundColor: '#ff4444',
-        borderRadius: 6,
-    },
-    logoutText: {
-        color: '#fff',
-        fontWeight: 'bold',
-        fontSize: 14,
-    },
-    content: {
-        flex: 1,
+        paddingVertical: 20,
+        alignItems: 'center',
         justifyContent: 'center',
-        alignItems: 'center',
-        paddingHorizontal: 20,
     },
-    welcome: {
-        fontSize: 20,
+    bannerText: {
+        fontSize: 15,
+        fontWeight: '400',
         color: colors.primary,
-        marginBottom: 30,
-    },
-    button: {
-        backgroundColor: colors.primary,
-        paddingVertical: 14,
-        paddingHorizontal: 30,
-        borderRadius: 8,
-    },
-    buttonText: {
-        color: '#fff',
-        fontSize: 16,
-        fontWeight: 'bold',
+        textAlign: 'center',
+        lineHeight: 24,
     },
 });
