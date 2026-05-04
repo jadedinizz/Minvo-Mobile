@@ -18,9 +18,11 @@ export default function HomeScreen({ navigation, setIsLoggedIn }) {
                 </Text>
             </View>
 
-            <Categories />
+            <View style={{ marginBottom: 10 }}>
+                <Categories />
+            </View>
 
-            <BusinessList 
+            <BusinessList
                 onCardPress={(service) => navigation.navigate('Detail', { service })}
             />
         </SafeAreaView>
@@ -40,7 +42,7 @@ const styles = StyleSheet.create({
     },
     bannerContainer: {
         paddingHorizontal: 20,
-        paddingVertical: 20,
+        paddingVertical: 15,
         alignItems: 'center',
         justifyContent: 'center',
     },
