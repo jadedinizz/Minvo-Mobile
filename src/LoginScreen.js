@@ -2,14 +2,14 @@ import { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, SafeAreaView, Image, } from 'react-native';
 
 
-export default function LoginScreen() {
+export default function LoginScreen({ setIsLoggedIn }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
 
   return (
     <SafeAreaView style={styles.container}>
-      <Image source={require('../assets/LOGOMINVO.png')} style={styles.logo} />
+      <Image source={require('../assets/logo.png')} style={styles.logo} />
 
       <View style={styles.content}>
         <Text style={styles.title}>Faça login</Text>
@@ -47,7 +47,10 @@ export default function LoginScreen() {
           </TouchableOpacity>
         </View>
 
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity 
+          style={styles.button}
+          onPress={() => setIsLoggedIn(true)}
+        >
           <Text style={styles.buttonText}>Entrar</Text>
         </TouchableOpacity>
 
@@ -76,7 +79,7 @@ const colors = {
   text_link:'#3884c2',
   placeholder: '#aaa',
   border: '#4C667B',
-  background: '#D9D9D9',
+  background: '#fff',
 
 };
 
