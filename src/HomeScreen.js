@@ -1,3 +1,5 @@
+// Home Screen
+
 import React from 'react';
 import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
 import Header from '../components/header';
@@ -23,7 +25,11 @@ export default function HomeScreen({ navigation, setIsLoggedIn }) {
             </View>
 
             <BusinessList
-                onCardPress={(service) => navigation.navigate('Detail', { service })}
+                onCardPress={(empresa) =>
+                    navigation.navigate('Detail', {
+                        empresa,
+                    })
+                }
             />
         </SafeAreaView>
     );
