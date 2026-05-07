@@ -1,3 +1,5 @@
+// Business Card - Cards individual de Empresa
+
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ImageBackground } from 'react-native';
 
